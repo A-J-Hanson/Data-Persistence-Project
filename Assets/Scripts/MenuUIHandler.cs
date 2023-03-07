@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -15,7 +16,11 @@ public class MenuUIHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Display name of player for currect session when returning to menu
+        if (!string.IsNullOrWhiteSpace(PlayerPrefs.Instance.playerName))
+        {
+            GameObject.Find("Player Name").GetComponent<TMP_InputField>().text = PlayerPrefs.Instance.playerName;
+        }
     }
 
 public void StartNew()
@@ -30,6 +35,11 @@ public void StartNew()
 #else
         Application.Quit();
 #endif
+    }
+
+    public void StoreName(string sn)
+    {
+        PlayerPrefs.Instance.playerName = sn;
     }
 }
 

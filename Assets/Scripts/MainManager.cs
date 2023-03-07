@@ -22,6 +22,9 @@ public class MainManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Show player name stored in PlayerPrefs
+        GameObject.Find("ScoreText (1)").GetComponent<Text>().text = "Best Score : __ (" + PlayerPrefs.Instance.playerName + ")";
+
         const float step = 0.6f;
         int perLine = Mathf.FloorToInt(4.0f / step);
         
