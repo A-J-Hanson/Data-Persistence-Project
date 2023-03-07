@@ -40,7 +40,11 @@ public class MainManager : MonoBehaviour
 
     private void Update()
     {
-        if (!m_Started)
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ExitToMenu();
+        }
+        else if (!m_Started)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -72,5 +76,10 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+    }
+
+    public void ExitToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
