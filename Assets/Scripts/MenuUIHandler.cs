@@ -30,6 +30,8 @@ public void StartNew()
 
     public void ExitGame()
     {
+        MainManager.Instance.SaveData();
+
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
 #else
