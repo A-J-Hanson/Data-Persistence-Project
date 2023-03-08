@@ -16,6 +16,8 @@ public class MenuUIHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        updateMenuScoreBoard();            
+
         // Display name of player for currect session when returning to menu
         if (!string.IsNullOrWhiteSpace(MainManager.Instance.playerName))
         {
@@ -43,5 +45,9 @@ public void StartNew()
     {
         MainManager.Instance.playerName = sn;
     }
+    void updateMenuScoreBoard()
+        {
+            GameObject.Find("High Score Text").GetComponent<TextMeshProUGUI>().text = "Best Score : " + MainManager.Instance.highScore + " (" + MainManager.Instance.hsName + ")";
+        }
 }
 
