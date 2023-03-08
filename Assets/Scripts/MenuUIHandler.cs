@@ -17,9 +17,9 @@ public class MenuUIHandler : MonoBehaviour
     void Start()
     {
         // Display name of player for currect session when returning to menu
-        if (!string.IsNullOrWhiteSpace(PlayerPrefs.Instance.playerName))
+        if (!string.IsNullOrWhiteSpace(MainManager.Instance.playerName))
         {
-            GameObject.Find("Player Name").GetComponent<TMP_InputField>().text = PlayerPrefs.Instance.playerName;
+            GameObject.Find("Player Name").GetComponent<TMP_InputField>().text = MainManager.Instance.playerName;
         }
     }
 
@@ -39,7 +39,7 @@ public void StartNew()
 
     public void StoreName(string sn)
     {
-        PlayerPrefs.Instance.playerName = sn;
+        MainManager.Instance.playerName = sn;
     }
 }
 
